@@ -3,6 +3,7 @@ import Card from '../UI/Card';
 import classes from './AddUser.module.css'
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 const AddUser =(props)=>
 {
    const[entereduserName, setEntereduserName] = useState('');
@@ -37,7 +38,7 @@ const AddUser =(props)=>
                     message:'Please enter valid age'
                 });
                 return;
-                return;
+    
             }
             props.onAddUser(entereduserName, enteredAge);
             setEntereduserName('');
@@ -48,7 +49,7 @@ const AddUser =(props)=>
         seterror(null);
     };
 return(
-    <div>
+    <Wrapper>
     {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>} 
     <Card className={classes.input}>
     <form onSubmit={addUserHandler}> 
@@ -60,7 +61,7 @@ return(
     </form>
 
     </Card>
-    </div>
+    </Wrapper>
 );
 
 };
